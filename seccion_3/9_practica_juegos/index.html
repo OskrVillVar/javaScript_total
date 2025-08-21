@@ -1,76 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
- 
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="misEstilos.css">
-    <title>Practica 1</title>
-    <audio id="SonidoAlarma">
-        <source src="gameover.mp3" type="audio/mpeg">
-    </audio>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Práctica 1</title>
+  <link rel="stylesheet" href="misEstilos.css">
 </head>
- 
-<body onload="comenzarTiempo()">    
-   
-    <h2 id="h2">Responde las siguientes preguntas</h2>
-        <h2 id="Tiempo">00:30</h2>
-    <br>
-    <b>¿cuantos dias tiene dos semanas?</b><br><br>
-    <input type="text" id="Respuesta1"><br><br>
- 
-    <b>¿cuantos dias tiene un año?</b><br><br>
-    <input type="text" id="Respuesta2"><br><br>
- 
-    <b>¿cuanto es 2+2?</b><br><br>
-    <input type="text" id="Respuesta3"><br><br>
-    
-    <b>¿cual es el pais mas grande del mundo?</b><br><br>
-    <input type="text" id="Respuesta4"><br><br>
- 
-    <b>¿Cómo le dicen a las personas nacidas en Perú?</b><br><br>
-    <input type="text" id="Respuesta5"><br><br>
- 
-    <button onclick="mostrarRespuestas()">Termine</button><br><br>
-    <button onclick="location.reload()">Intentar de nuevo</button>
-   
-    <script>
-        let tiempoRestante = 30;
-        let elementoSonidoAlarma = document.getElementById("SonidoAlarma");
-        let elementoTiempo = document.getElementById("Tiempo");
-        let intervalo;
- 
-        function mostrarRespuestas() {
-            clearInterval(intervalo);
-            let respuestas = [
-                document.getElementById("Respuesta1").value,
-                document.getElementById("Respuesta2").value,
-                document.getElementById("Respuesta3").value,
-                document.getElementById("Respuesta4").value,
-                document.getElementById("Respuesta5").value
-            ];
- 
-            let fechaActual = new Date();
-            alert(
-                "La fecha de hoy es " +
-                fechaActual.toLocaleDateString('es-ES') +
-                " y tus respuestas son:\n" +
-                respuestas.join("\n")
-            );
+<body onload="comenzarTiempo()">
+
+  <h2>Responde las siguientes preguntas sobre futbol</h2>
+  <h2 id="Tiempo">00:30</h2>
+
+  <b>¿Qué equipo fue el primero en ganar un sextete?</b><br>
+  <input type="text" id="Respuesta1"><br><br>
+
+  <b>¿Qué jugador tiene el récord de goles en un año natural?</b><br>
+  <input type="text" id="Respuesta2"><br><br>
+
+  <b>¿Cuál es la selección actualmente campeona del mundo?</b><br>
+  <input type="text" id="Respuesta3"><br><br>
+
+  <b>¿Qué jugador ganó 3 mundiales?</b><br>
+  <input type="text" id="Respuesta4"><br><br>
+
+  <b>¿Qué equipo tiene más UEFA Champions League?</b><br>
+  <input type="text" id="Respuesta5"><br><br>
+
+  <button class="button-90" role="button" onclick="mostrarRespuestas()">Enviar respuestas</button>
+  <button class="button-90" role="button" onclick="location.reload()">Reintentar</button>
+
+  <audio id="SonidoAlarma" preload="auto">
+    <source src="gameovEr.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    let tiempoRestante = 30;
+    let elementoSonidoAlarma;
+    let elementoTiempo;
+    let intervalo;
+
+    function comenzarTiempo() {
+      elementoSonidoAlarma = document.getElementById("SonidoAlarma");
+      elementoTiempo = document.getElementById("Tiempo");
+
+      intervalo = setInterval(() => {
+        tiempoRestante--;
+        let minutos = Math.floor(tiempoRestante / 60).toString().padStart(2, "0");
+        let segundos = (tiempoRestante % 60).toString().padStart(2, "0");
+        elementoTiempo.textContent = `${minutos}:${segundos}`;
+
+        if (tiempoRestante <= 0) {
+          clearInterval(intervalo);
+          elementoSonidoAlarma.play().catch(error => {
+            console.warn("No se pudo reproducir el audio automáticamente:", error);
+          });
+          alert("¡Game Over!");
         }
- 
-        function comenzarTiempo() {
-            intervalo = setInterval(function () {
-                tiempoRestante--;
-                let minutos = Math.floor(tiempoRestante / 60).toString().padStart(2, "0");
-                let segundos = (tiempoRestante % 60).toString().padStart(2, "0");
-                elementoTiempo.textContent = minutos + ":" + segundos;
- 
-                tiempoRestante <= 0 && (clearInterval(intervalo), elementoSonidoAlarma.play(), alert("¡Game Over!"));
-            }, 1000);
-        }
-    </script>
- 
+      }, 1000);
+    }
+
+    function mostrarRespuestas() {
+      clearInterval(intervalo);
+      const respuestas = [
+        document.getElementById("Respuesta1").value,
+        document.getElementById("Respuesta2").value,
+        document.getElementById("Respuesta3").value,
+        document.getElementById("Respuesta4").value,
+        document.getElementById("Respuesta5").value
+      ];
+      const fechaActual = new Date();
+      alert(`La fecha de hoy es ${fechaActual.toLocaleDateString('es-ES')} y tus respuestas son:\n${respuestas.join("\n")}`);
+    }
+  </script>
 </body>
- 
 </html>
