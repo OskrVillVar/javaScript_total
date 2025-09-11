@@ -1,0 +1,111 @@
+
+
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #1c1c1c;
+    color: #f5f5f5;
+    background-image: radial-gradient(circle at top, #2c2c2c, #000);
+    min-height: 100vh;
+}
+
+header {
+    background-color: #b30000;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px #ff0000;
+}
+
+header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5em;
+    margin: 0;
+    color: #fff;
+    text-shadow: 2px 2px 5px #000;
+}
+
+main {
+    padding: 30px;
+    max-width: 800px;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 0 15px #444;
+}
+
+.menu h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8em;
+    color: #ffcc00;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.menu p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    text-align: center;
+}
+
+
+.input-section {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.input-section label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.input-section input {
+    padding: 8px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: none;
+    width: 150px;
+}
+
+.genre-section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.genre-button {
+    background-color: #ffcc00;
+    color: #000;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(255, 204, 0, 0.3);
+}
+
+.genre-button:hover {
+    background-color: #ffd633;
+    transform: scale(1.05);
+}
+
+.recommendation-section {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.recommendation-section h3 {
+    font-size: 1.5em;
+    color: #ffcc00;
+    margin-bottom: 10px;
+}
+
+#recommendation {
+    font-size: 1.2em;
+    font-style: italic;
+    color: #fff;
+}
