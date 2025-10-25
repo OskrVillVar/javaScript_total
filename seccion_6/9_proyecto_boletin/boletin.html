@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boletín Estudiantil</title>
+    <link rel="stylesheet" href="boletin.css">
+    <img src="logotctp.jpg" alt="ctpsra">
+</head>
+<body>
+    <header>
+        <h1>Boletín Estudiantil</h1>
+        <h2>Alumno: Porfirio Lopez</h2>
+    </header>
+
+    <section>
+        <h3>Notas:</h3>
+        <ul id="listaNotas"></ul>
+
+        <div class="botones">
+            <button onclick="calcularPromedio()">Calcular Promedio</button>
+            <button onclick="notaMasAlta()">Buscar nota más alta</button>
+            <button onclick="hayAplazados()">Consultar aplazados</button>
+        </div>
+
+        <div class="resultados">
+            <p id="promedio">Promedio: </p>
+            <p id="mayor">Nota más alta: </p>
+            <p id="aplazo">¿Hay aplazados?: </p>
+        </div>
+    </section>
+
+    <script src="boletin.js"></script>
+</body>
+</html>
